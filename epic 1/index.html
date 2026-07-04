@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDI Prediction - Human Development Index</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Three.js for 3D particle background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- 3D Particle Canvas Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Main Content -->
+    <div class="page-wrapper">
+        <div class="glass-card">
+            <div class="header-section">
+                <span class="header-icon">🌍</span>
+                <h1>Human Development Index</h1>
+                <p class="subtitle">Predict a country's HDI from four key indicators</p>
+                <div class="title-underline"></div>
+            </div>
+
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% endif %}
+
+            <form action="/predict" method="POST" id="predict-form">
+                <div class="form-group">
+                    <label for="life_expectancy">Life Expectancy</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📅</span>
+                        <input type="number" step="0.1" min="20" max="90" id="life_expectancy"
+                               name="life_expectancy" placeholder="e.g. 82.6 years" required>
+                        <div class="input-glow"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mean_schooling">Mean Years of Schooling</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📚</span>
+                        <input type="number" step="0.1" min="0" max="18" id="mean_schooling"
+                               name="mean_schooling" placeholder="e.g. 12.9 years" required>
+                        <div class="input-glow"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="expected_schooling">Expected Years of Schooling</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🎓</span>
+                        <input type="number" step="0.1" min="0" max="20" id="expected_schooling"
+                               name="expected_schooling" placeholder="e.g. 18.2 years" required>
+                        <div class="input-glow"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="gni">GNI per Capita (US$)</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">💰</span>
+                        <input type="number" step="100" min="0" id="gni"
+                               name="gni" placeholder="e.g. 66,000" required>
+                        <div class="input-glow"></div>
+                    </div>
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit" class="btn" id="predict-btn">
+                        <span class="btn-text">
+                            Predict HDI
+                            <span class="btn-arrow">→</span>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
