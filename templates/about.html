@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About HDI Predictor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h2>🌍 HDI Predictor</h2>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/predict">Predict</a>
+
+        <a href="/about">About</a>
+
+    </nav>
+
+</header>
+
+<div class="container">
+
+<h1>About Human Development Index Predictor</h1>
+
+<p style="font-size:18px; line-height:1.8;">
+
+This project predicts the Human Development Index (HDI) of a country using
+Machine Learning.
+
+The model was trained using official Human Development data and a
+Linear Regression algorithm.
+
+</p>
+
+<br>
+
+<h2>Technologies Used</h2>
+
+<ul style="font-size:18px; line-height:2;">
+
+<li>Python</li>
+
+<li>Flask</li>
+
+<li>Pandas</li>
+
+<li>NumPy</li>
+
+<li>Scikit-Learn</li>
+
+<li>Matplotlib</li>
+
+<li>Seaborn</li>
+
+<li>HTML5</li>
+
+<li>CSS3</li>
+
+</ul>
+
+<br>
+
+<h2>Machine Learning Workflow</h2>
+
+<ol style="font-size:18px; line-height:2;">
+
+<li>Data Collection</li>
+
+<li>Data Cleaning</li>
+
+<li>Visualization</li>
+
+<li>Model Training</li>
+
+<li>Prediction</li>
+
+<li>Flask Deployment</li>
+
+</ol>
+
+<br>
+
+<h2>Correlation Heatmap</h2>
+
+<img
+src="{{ url_for('static', filename='images/heatmap.png') }}"
+style="width:100%;border-radius:10px;">
+
+<br><br>
+
+<h2>Scatter Plot</h2>
+
+<img
+src="{{ url_for('static', filename='images/scatter.png') }}"
+style="width:100%;border-radius:10px;">
+
+</div>
+
+<footer>
+
+<p>
+
+Developed by Shaik Mahammad Mathin
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

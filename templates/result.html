@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h2>🌍 HDI Predictor</h2>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/predict">Predict</a>
+
+        <a href="/about">About</a>
+
+    </nav>
+
+</header>
+
+
+<div class="result">
+
+    <h1>Prediction Result</h1>
+
+    <h2>Predicted HDI Score</h2>
+
+    <h1>{{ prediction }}</h1>
+
+    <h2>{{ category }}</h2>
+
+    <br>
+
+    {% if category == "Very High Human Development" %}
+
+        <p>
+            Excellent performance in healthcare, education and income.
+        </p>
+
+    {% elif category == "High Human Development" %}
+
+        <p>
+            Strong development with opportunities for further improvement.
+        </p>
+
+    {% elif category == "Medium Human Development" %}
+
+        <p>
+            Moderate development. Improving education and healthcare can increase HDI.
+        </p>
+
+    {% else %}
+
+        <p>
+            Low human development. Significant improvements are needed in health,
+            education and income.
+        </p>
+
+    {% endif %}
+
+    <br><br>
+
+    <a href="/predict">
+
+        <button>
+
+            Predict Again
+
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+
+</html>
